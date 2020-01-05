@@ -31,13 +31,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        dl=findViewById(R.id.drawerLayout);
-        final NavigationView myNav=findViewById(R.id.nav);
+        dl = findViewById(R.id.drawerLayout);
+        final NavigationView myNav = findViewById(R.id.nav);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, dl, null, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         dl.addDrawerListener(toggle);
         toggle.syncState();
-
 
 
         Toolbar toolbar = findViewById(R.id.toolbar);

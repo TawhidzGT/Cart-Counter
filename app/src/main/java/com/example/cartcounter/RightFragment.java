@@ -31,14 +31,14 @@ public class RightFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.right_fragment, container, false);
+        View view = inflater.inflate(R.layout.right_fragment, container, false);
         Button button = view.findViewById(R.id.btnclick);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // do something when the corky is clicked
                 MainActivity.cart_count++;
-                Log.d("lfe",MainActivity.cart_count+" ");
+                Log.d("lfe", MainActivity.cart_count + " ");
                 mViewModel.setIndex(String.valueOf(MainActivity.cart_count));
                 mViewModel.getText().observe(RightFragment.this, new Observer<String>() {
                     @Override
@@ -61,7 +61,7 @@ public class RightFragment extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        inflater.inflate(R.menu.cart_layout,menu);
+        inflater.inflate(R.menu.cart_layout, menu);
         final MenuItem menuItem = menu.findItem(R.id.action_addcart);
 
         View actionView = menuItem.getActionView();
@@ -82,7 +82,6 @@ public class RightFragment extends Fragment {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         return super.onOptionsItemSelected(item);
     }
-
 
 
 }
