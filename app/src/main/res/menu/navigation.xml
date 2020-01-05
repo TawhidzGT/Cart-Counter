@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_left"
+        android:icon="@drawable/ic_upward"
+        android:title="@string/left" />
+
+    <item
+        android:id="@+id/navigation_leftCenter"
+        android:icon="@drawable/ic_upward"
+        android:title="@string/leftcenter" />
+
+    <item
+        android:id="@+id/navigation_RightCenter"
+        android:icon="@drawable/ic_upward"
+        android:title="@string/rightcenter" />
+
+    <item
+        android:id="@+id/navigation_right"
+        android:icon="@drawable/ic_upward"
+        android:title="@string/right" />
+
+</menu>
