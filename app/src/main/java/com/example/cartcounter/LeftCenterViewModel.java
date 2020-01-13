@@ -17,11 +17,19 @@ public class LeftCenterViewModel extends ViewModel {
         }
     });
 
-    public void setIndex(String index) {
-        mCountText.setValue(index);
+    public void setCart()
+    {
+        MainActivity.cart_count++;
+        mCountText.setValue(String.valueOf(MainActivity.cart_count));
     }
 
     public LiveData<String> getText() {
         return mCountText;
     }
+
+
+     /*public void setIndex(String index) {
+        mCountText.setValue(index);
+    }*/
+
 }

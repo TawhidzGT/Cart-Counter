@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/navigation_left">
+
+    <fragment
+        android:id="@id/navigation_left"
+        android:name="com.example.cartcounter.LeftFragment"
+        android:label="left_fragment"
+        tools:layout="@layout/left_fragment" />
+    <fragment
+        android:id="@id/navigation_leftCenter"
+        android:name="com.example.cartcounter.LeftCenterFragment"
+        android:label="left_center_fragment"
+        tools:layout="@layout/left_center_fragment" />
+    <fragment
+        android:id="@id/navigation_RightCenter"
+        android:name="com.example.cartcounter.RightCenterFragment"
+        android:label="right_center_fragment"
+        tools:layout="@layout/right_center_fragment" />
+    <fragment
+        android:id="@id/navigation_right"
+        android:name="com.example.cartcounter.RightFragment"
+        android:label="right_fragment"
+        tools:layout="@layout/right_fragment" />
+</navigation>

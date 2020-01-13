@@ -8,11 +8,15 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:tabMode="fixed">
+
+
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -57,10 +61,23 @@
 
         </com.google.android.material.tabs.TabLayout>
 
+
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+
+
+        <fragment
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:id="@+id/nav_host_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/nav_graph">
+        </fragment>
+
+
 
     </LinearLayout>
 
@@ -69,6 +86,8 @@
         android:id="@+id/frame_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+
 
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -88,5 +107,7 @@
         android:layout_gravity="start"
         android:background="#ffffff"
         app:menu="@menu/navigation" />
+
+
 
 </androidx.drawerlayout.widget.DrawerLayout>

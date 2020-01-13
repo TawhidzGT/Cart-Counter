@@ -8,8 +8,10 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.NavigationUI;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -19,27 +21,24 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
+
 public class RightFragment extends Fragment {
 
     private RightTabViewModel mViewModel;
     private TextView counter;
 
-    public static RightFragment newInstance() {
-        return new RightFragment();
-    }
-
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.right_fragment, container, false);
+
         Button button = view.findViewById(R.id.btnclick);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // do something when the corky is clicked
-                MainActivity.cart_count++;
-                Log.d("lfe", MainActivity.cart_count + " ");
-                mViewModel.setIndex(String.valueOf(MainActivity.cart_count));
+                mViewModel.setCart();
                 mViewModel.getText().observe(RightFragment.this, new Observer<String>() {
                     @Override
                     public void onChanged(@Nullable String s) {
