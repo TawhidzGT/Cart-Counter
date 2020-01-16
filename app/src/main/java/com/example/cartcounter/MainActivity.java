@@ -6,10 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.navigation.ui.NavigationUI;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
@@ -36,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mainActivityViewModel mAVM = ViewModelProviders.of(this).get(mainActivityViewModel.class);
 
         dl = findViewById(R.id.drawerLayout);
         final NavigationView myNav = findViewById(R.id.nav);
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         TabLayout tablayout = findViewById(R.id.tablayout);
         viewPager = findViewById(R.id.viewPager);
-        BottomNavigationView navigation = findViewById(R.id.navigation);
+        BottomNavigationView bottomNavigation = findViewById(R.id.navigation);
         //navigation.setOnNavigationItemSelectedListener(bottomNavigation);
 
         toolbar.setTitle(getResources().getString(R.string.app_name));
@@ -70,22 +70,22 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.navigation_left:
                         dl.closeDrawer(GravityCompat.START);
-                        navigation.setSelectedItemId(R.id.navigation_left);
+                        bottomNavigation.setSelectedItemId(R.id.navigation_left);
                         navController.navigate(R.id.navigation_left);
                         break;
                     case R.id.navigation_leftCenter:
                         dl.closeDrawer(GravityCompat.START);
-                        navigation.setSelectedItemId(R.id.navigation_leftCenter);
+                        bottomNavigation.setSelectedItemId(R.id.navigation_leftCenter);
                         navController.navigate(R.id.navigation_leftCenter);
                         break;
                     case R.id.navigation_RightCenter:
                         dl.closeDrawer(GravityCompat.START);
-                        navigation.setSelectedItemId(R.id.navigation_RightCenter);
+                        bottomNavigation.setSelectedItemId(R.id.navigation_RightCenter);
                         navController.navigate(R.id.navigation_RightCenter);
                         break;
                     case R.id.navigation_right:
                         dl.closeDrawer(GravityCompat.START);
-                        navigation.setSelectedItemId(R.id.navigation_right);
+                        bottomNavigation.setSelectedItemId(R.id.navigation_right);
                         navController.navigate(R.id.navigation_right);
                         break;
                 }
@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
@@ -126,25 +126,25 @@ public class MainActivity extends AppCompatActivity {
                switch(tab.getPosition())
                 {
                     case 0:
-                        navigation.setSelectedItemId(R.id.navigation_left);
+                        bottomNavigation.setSelectedItemId(R.id.navigation_left);
                         navController.navigate(R.id.navigation_left);
                         break;
                     case 1:
-                        navigation.setSelectedItemId(R.id.navigation_leftCenter);
+                        bottomNavigation.setSelectedItemId(R.id.navigation_leftCenter);
                         navController.navigate(R.id.navigation_leftCenter);
                         break;
                     case 2:
-                        navigation.setSelectedItemId(R.id.navigation_RightCenter);
+                        bottomNavigation.setSelectedItemId(R.id.navigation_RightCenter);
                         navController.navigate(R.id.navigation_RightCenter);
                         break;
                     case 3:
-                        navigation.setSelectedItemId(R.id.navigation_right);
+                        bottomNavigation.setSelectedItemId(R.id.navigation_right);
                         navController.navigate(R.id.navigation_right);
                         break;
                     default:
                         break;
                 }
-//                viewPager.setCurrentItem(tab.getPosition());
+
             }
 
             @Override

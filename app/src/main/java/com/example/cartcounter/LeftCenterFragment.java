@@ -8,11 +8,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.NavigationUI;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -21,9 +16,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationView;
 
 public class LeftCenterFragment extends Fragment {
 
@@ -36,55 +28,40 @@ public class LeftCenterFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.left_center_fragment, container, false);
 
+        mViewModel = ViewModelProviders.of(this).get(LeftCenterViewModel.class);
+
         Button button = view.findViewById(R.id.btnclick);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mViewModel.setCart();
-                mViewModel.getText().observe(LeftCenterFragment.this, new Observer<String>() {
-                    @Override
-                    public void onChanged(@Nullable String s) {
-                        counter.setText(s);
-                    }
-                });
+
             }
         });
+
+
         setHasOptionsMenu(true);
         return view;
     }
 
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(LeftCenterViewModel.class);
-        // TODO: Use the ViewModel
-    }
-
-    @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        menu.clear();
         inflater.inflate(R.menu.cart_layout, menu);
         final MenuItem menuItem = menu.findItem(R.id.action_addcart);
 
         View actionView = menuItem.getActionView();
         counter = actionView.findViewById(R.id.notification_badge);
         counter.setText(String.valueOf(MainActivity.cart_count));
-
-
-        actionView.setOnClickListener(new View.OnClickListener() {
+        mainActivityViewModel.getText().observe(LeftCenterFragment.this, new Observer<String>() {
             @Override
-            public void onClick(View v) {
-                onOptionsItemSelected(menuItem);
+            public void onChanged(@Nullable String s) {
+                counter.setText(s);
             }
         });
 
         super.onCreateOptionsMenu(menu, inflater);
     }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        return super.onOptionsItemSelected(item);
-    }
-
 
 }
