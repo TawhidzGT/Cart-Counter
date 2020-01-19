@@ -6,6 +6,6 @@ public class LeftCenterViewModel extends ViewModel {
 
     void setCart()
     {
-        mainActivityViewModel.CounterMain();
+        mainActivityViewModel.setCount();
     }
 }

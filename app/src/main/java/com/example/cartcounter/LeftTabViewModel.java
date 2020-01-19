@@ -7,7 +7,7 @@ public class LeftTabViewModel extends ViewModel {
 
     void setCart() {
 
-        mainActivityViewModel.CounterMain();
+        mainActivityViewModel.setCount();
     }
 
 }

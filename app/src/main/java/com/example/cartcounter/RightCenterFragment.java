@@ -36,7 +36,6 @@ public class RightCenterFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 mViewModel.setCart();
-
             }
         });
         setHasOptionsMenu(true);
@@ -51,11 +50,10 @@ public class RightCenterFragment extends Fragment {
 
         View actionView = menuItem.getActionView();
         counter = actionView.findViewById(R.id.notification_badge);
-        counter.setText(String.valueOf(MainActivity.cart_count));
-        mainActivityViewModel.getText().observe(RightCenterFragment.this, new Observer<String>() {
+        mainActivityViewModel.getCount().observe(RightCenterFragment.this, new Observer<Integer>() {
             @Override
-            public void onChanged(@Nullable String s) {
-                counter.setText(s);
+            public void onChanged(@Nullable Integer s) {
+                counter.setText(String.valueOf(s));
             }
         });
 

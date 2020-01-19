@@ -6,6 +6,6 @@ public class RightTabViewModel extends ViewModel {
 
     void setCart()
     {
-        mainActivityViewModel.CounterMain();
+        mainActivityViewModel.setCount();
     }
 }

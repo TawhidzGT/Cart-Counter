@@ -6,17 +6,24 @@ import androidx.lifecycle.ViewModel;
 
 public class mainActivityViewModel extends ViewModel {
 
-    public static MutableLiveData<String> mCountText = new MutableLiveData<>();
+    private static MutableLiveData<Integer> mCount;
 
-    static void CounterMain()
+    public static MutableLiveData<Integer> getCount()
     {
-        MainActivity.cart_count++;
-        mCountText.setValue(String.valueOf(MainActivity.cart_count));
+        if(mCount==null)
+        {
+            mCount=new MutableLiveData<>();
+            mCount.setValue(0);
+        }
+        return mCount;
     }
 
-    static LiveData<String> getText() {
-
-        return mCountText;
+    public static void setCount()
+    {
+        if(mCount.getValue()!=null)
+        {
+            mCount.setValue(mCount.getValue()+1);
+        }
     }
 
 }

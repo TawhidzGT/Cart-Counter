@@ -6,7 +6,7 @@ public class RightCenterViewModel extends ViewModel {
 
     void setCart()
     {
-        mainActivityViewModel.CounterMain();
+        mainActivityViewModel.setCount();
     }
 
 }

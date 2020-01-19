@@ -22,9 +22,6 @@ import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
 
-
-    public static int cart_count = 0;
-
     private ViewPager viewPager;
     private DrawerLayout dl;
     public static NavController navController;
